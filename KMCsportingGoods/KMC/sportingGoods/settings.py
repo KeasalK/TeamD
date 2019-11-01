@@ -11,6 +11,15 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import environ
+
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
+
+# reading .env file
+environ.Env.read_env()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,7 +34,9 @@ SECRET_KEY = '+0ifpd$sef)a$q&a@035%6t76)_(r21iwvgz-3ru$_!&j6pa19'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+
+INTERNAL_IPS = ['127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -47,14 +58,26 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'sportingGoods.utils.logging.Logging',
 ]
 
 ROOT_URLCONF = 'sportingGoods.urls'
+PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+STATICFILES_DIRS = [
+    '%s/static' % (PROJECT_DIR),
+]
+
+class InvalidTemplateVariable(str):
+    def __mod__(self, other):
+        from django.template.base import TemplateSyntaxError
+        raise TemplateSyntaxError("Invalid variable : '%s'" % other)
+
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['%s/templates/' % (PROJECT_DIR), ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
