@@ -20,12 +20,13 @@ from django.contrib import admin
 
 # For debugging purposes
 from django.conf import settings
-
+from sportingGoods.inventory import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^about/', TemplateView.as_view(template_name='about.html')),
+    url(r'^about/$', TemplateView.as_view(template_name='about.html')),
     url(r'^$', TemplateView.as_view(template_name='homepage.html')),
+    url(r'^inventory/', include('sportingGoods.inventory.urls', namespace='inventory_ns')),
 ]
 
 if settings.DEBUG:
