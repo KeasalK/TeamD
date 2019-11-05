@@ -18,6 +18,7 @@ from django.conf.urls import url
 from django.views.generic import TemplateView
 from django.contrib import admin
 
+
 # For debugging purposes
 from django.conf import settings
 from sportingGoods.inventory import views
