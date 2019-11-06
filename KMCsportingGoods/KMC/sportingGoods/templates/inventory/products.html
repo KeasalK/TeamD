@@ -33,6 +33,9 @@
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
           </ol>
           <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
@@ -45,13 +48,13 @@
               <img class="d-block img-fluid" src="https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="Third slide">
             </div>
             <div class="carousel-item">
-              <img class="d-block img-fluid" src="https://images.pexels.com/photos/1103829/pexels-photo-1103829.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="Third slide">
+              <img class="d-block img-fluid" src="https://images.pexels.com/photos/1103829/pexels-photo-1103829.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="Fourth slide">
             </div>
             <div class="carousel-item">
-              <img class="d-block img-fluid" src="https://images.pexels.com/photos/257970/pexels-photo-257970.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="Third slide">
+              <img class="d-block img-fluid" src="https://images.pexels.com/photos/257970/pexels-photo-257970.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="Fifth slide">
             </div>
             <div class="carousel-item">
-              <img class="d-block img-fluid" src="https://images.pexels.com/photos/54123/pexels-photo-54123.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="Third slide">
+              <img class="d-block img-fluid" src="https://images.pexels.com/photos/54123/pexels-photo-54123.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="Sixth slide">
             </div>
           </div>
           <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -70,8 +73,8 @@
           <!-- Show Product Thumbnails -->
           {% for prod in prod_dict.values %}
 
-            {% include "inventory/product_thumbnail.html" with id=prod.id product=prod.id sport=prod.sport vendor=prod.vendor price=prod.price size=prod.size color=prod.color product_image=prod.product_image %}
-            {% include "inventory/product_popup.html" with id=prod.id product=prod.id sport=prod.sport vendor=prod.vendor price=prod.price size=prod.size color=prod.color product_image=prod.product_image %}
+            {% include "inventory/product_thumbnail.html" with id=prod.id product=prod.product sport=prod.sport vendor=prod.vendor price=prod.price size=prod.size color=prod.color product_image=prod.product_image %}
+            {% include "inventory/product_popup.html" with id=prod.id product=prod.product sport=prod.sport vendor=prod.vendor price=prod.price size=prod.size color=prod.color product_image=prod.product_image %}
             
           {% endfor %}
           </div>
