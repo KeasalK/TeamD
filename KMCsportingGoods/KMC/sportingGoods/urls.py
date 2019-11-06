@@ -18,20 +18,23 @@ from django.conf.urls import url
 from django.views.generic import TemplateView
 from django.contrib import admin
 
+
 # For debugging purposes
 from django.conf import settings
-from sportingGoods.inventory import views
+from sportingGoods.inventory import views as prod_views
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^about/', TemplateView.as_view(template_name='about.html')),
     url(r'^$', TemplateView.as_view(template_name='homepage.html')),
     url(r'^inventory/', include('sportingGoods.inventory.urls', namespace='inventory_ns')),
-    url(r'^inventory/products/', TemplateView.as_view(template_name='inventory/products.html')),
+    url(r'^inventory/products/', prod_views.fetch_all_products),
 ]
 
 if settings.DEBUG:
     import debug_toolbar
     urlpatterns += [
         url(r'^__debug__/', include(debug_toolbar.urls)),
+        
     ]
