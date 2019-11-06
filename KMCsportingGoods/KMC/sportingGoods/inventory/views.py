@@ -44,7 +44,7 @@ def edit_prod(request):
     if(id == ''):
         return HttpResponseRedirect('/')
     
-    title = "Edit Product"
+    product = "Edit Product"
     
     form = forms.ProductForm()
 
