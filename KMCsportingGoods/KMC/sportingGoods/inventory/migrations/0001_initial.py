@@ -17,14 +17,14 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('product', models.CharField(max_length=30)),
                 ('sport', models.CharField(max_length=30)),
-                ('vender', models.CharField(max_length=30)),
+                ('vendor', models.CharField(max_length=30)),
                 ('price', models.IntegerField()),
                 ('size', models.CharField(max_length=30)),
                 ('color', models.CharField(max_length=30)),
                 ('product_image', models.URLField(max_length=1000)),
             ],
             options={
-                'unique_together': {('product', 'vender', 'color')},
+                'unique_together': {('product', 'vendor', 'color')},
             },
         ),
     ]
