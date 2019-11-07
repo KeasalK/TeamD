@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 
+
 {% block header %}
-<h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">KMC Inventory</h2>
+<h1 class="page-section-heading text-center text-uppercase text-secondary mb-0">KMC Inventory</h1>
 {% endblock header %}
 
   <!-- Page Content -->
@@ -12,15 +13,16 @@
 
       <div class="col-lg-3">
 
-        <h1 class="my-4">KMC Inventory List</h1>
+        <h4 class="my-4">Sort by Sport</h4>
         <div class="list-group">
-          <a href="#" class="list-group-item">Baseball</a>
-          <a href="#" class="list-group-item">Basketball</a>
-          <a href="#" class="list-group-item">Football</a>
-          <a href="#" class="list-group-item">Golf</a>
-          <a href="#" class="list-group-item">Soccer</a>
-          <a href="#" class="list-group-item">Softball</a>
-          <a href="#" class="list-group-item">Tennis</a>
+          
+          <a href="{% url 'inventory_ns:baseball' %}#mainsection" class="list-group-item">Baseball</a>
+          <a href="{% url 'inventory_ns:basketball' %}#mainsection" class="list-group-item">Basketball</a>
+          <a href="{% url 'inventory_ns:football' %}#mainsection" class="list-group-item">Football</a>
+          <a href="{% url 'inventory_ns:golf' %}#mainsection" class="list-group-item">Golf</a>
+          <a href="{% url 'inventory_ns:soccer' %}#mainsection" class="list-group-item">Soccer</a>
+          <a href="{% url 'inventory_ns:softball' %}#mainsection" class="list-group-item">Softball</a>            
+          <a href="{% url 'inventory_ns:tennis' %}#mainsection" class="list-group-item">Tennis</a>
         </div>
 
       </div>
