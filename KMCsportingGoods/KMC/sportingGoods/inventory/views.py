@@ -39,12 +39,40 @@ def fetch_all_products(request):
     prod_dict = models.fetch_all_products_process()
     return render(request, 'inventory/products.html', {'prod_dict': prod_dict})
 
+def fetch_softball(request):
+    sb_dict = models.fetch_softball()
+    return render(request, 'inventory/softball.html', {'sb_dict': sb_dict})
+
+def fetch_baseball(request):
+    base_dict = models.fetch_baseball()
+    return render(request, 'inventory/baseball.html', {'base_dict': base_dict})
+
+def fetch_basketball(request):
+    bask_dict = models.fetch_basketball()
+    return render(request, 'inventory/basketball.html', {'bask_dict': bask_dict})
+
+def fetch_football(request):
+    fb_dict = models.fetch_football()
+    return render(request, 'inventory/football.html', {'fb_dict': fb_dict})
+
+def fetch_golf(request):
+    golf_dict = models.fetch_golf()
+    return render(request, 'inventory/golf.html', {'golf_dict': golf_dict})
+
+def fetch_soccer(request):
+    soc_dict = models.fetch_soccer()
+    return render(request, 'inventory/soccer.html', {'soc_dict': soc_dict})
+
+def fetch_tennis(request):
+    ten_dict = models.fetch_tennis()
+    return render(request, 'inventory/tennis.html', {'ten_dict': ten_dict})
+
 def edit_prod(request):
     id = request.POST.get('id', '')
     if(id == ''):
         return HttpResponseRedirect('/')
     
-    product = "Edit Product"
+    title = "Edit Product"
     
     form = forms.ProductForm()
 
@@ -85,7 +113,7 @@ def edit_prod(request):
                 action = 'ERROR'
         else:
             action = 'ERROR'
-    return render(request, 'inventory/edit_prod_form.html', {'action': action, 'form': form, 'product': product})
+    return render(request, 'inventory/edit_prod_form.html', {'action': action, 'form': form, 'title': title})
 
 def delete_prod(request):
     id = request.POST.get('id', '')
@@ -98,3 +126,4 @@ def delete_prod(request):
     except:
         print('Unexpected error: ', + sys.exc_info()[0])
     return HttpResponseRedirect('/')
+
