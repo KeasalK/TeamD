@@ -30,14 +30,9 @@ urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name='homepage.html')),
     url(r'^inventory/', include('sportingGoods.inventory.urls', namespace='inventory_ns')),
     url(r'^inventory/products/', prod_views.fetch_all_products),
-<<<<<<< HEAD
     url(r'^cart/', TemplateView.as_view(template_name='order/cart.html')),
     url(r'^checkout/', TemplateView.as_view(template_name='order/checkout.html')),
     url(r'^confirmation/', TemplateView.as_view(template_name='order/confirmation.html')),
-=======
-    url(r'^delivery/', TemplateView.as_view(template_name='order/delivery.html')),
-    url(r'^order/', include('sportingGoods.order.urls', namespace="order_ns_")),
->>>>>>> a31d2272bef93e9695d7712fb9b60aa4178934b1
 ]
 
 if settings.DEBUG:
