@@ -4,6 +4,7 @@ from django.core.exceptions import ValidationError
 from django.http import HttpResponseRedirect
 import sys
 
+
 # Create your views here.
 def inventory(request):
     return render(request, 'inventory/products.html')

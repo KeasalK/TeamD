@@ -50,7 +50,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'sportingGoods.inventory',
     'sportingGoods.order',
-   # 'sportingGoods.payment',
 ]
 
 MIDDLEWARE = [

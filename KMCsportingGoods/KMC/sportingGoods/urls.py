@@ -30,8 +30,8 @@ urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name='homepage.html')),
     url(r'^inventory/', include('sportingGoods.inventory.urls', namespace='inventory_ns')),
     url(r'^inventory/products/', prod_views.fetch_all_products),
-    url(r'^cart/', TemplateView.as_view(template_name='order/cart.html')),
     url(r'^delivery/', TemplateView.as_view(template_name='order/delivery.html')),
+    url(r'^order/', include('sportingGoods.order.urls', namespace="order_ns_")),
 ]
 
 if settings.DEBUG:

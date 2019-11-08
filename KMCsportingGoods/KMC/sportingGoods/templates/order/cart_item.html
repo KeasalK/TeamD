@@ -1,0 +1,10 @@
+<tr>
+    <td><img class="img-fluid" style="width: 50px;height: 30px;align-self: center;" src={{item_image}} /> </td>
+    <td class="text-left">{{item}}</td>
+    <td class="text-center">In stock</td>
+    <td class="text-center">${{price}}</td>
+    <td class="text-center">{{quantity}}</td>
+    <td class="text-right">${{subtotal}}</td>
+    <td class="text-right"><form method="post" action="{% url 'order_ns:removeItem' %}" style ="display: inline;">
+        {% csrf_token %}<button class="btn btn-sm btn-danger active" type="submit" name=id value="{{id}}"><i class="fa fa-trash"></i> </button> </form></td>
+</tr>
